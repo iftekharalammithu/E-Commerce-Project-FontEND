@@ -17,10 +17,10 @@ import Checkauth from "./components/Common/Checkauth";
 import Unauth_page from "./pages/Unauth_page/Unauth_page";
 
 const App = () => {
-  const isAuthenticaion = true;
+  const isAuthenticaion = false;
   const user = {
     name: "John Doe",
-    role: "user",
+    role: null,
   };
   return (
     <div className="flex flex-col  overflow-hidden bg-white">
