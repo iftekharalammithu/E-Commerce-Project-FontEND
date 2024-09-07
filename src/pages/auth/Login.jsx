@@ -1,5 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import CommonForm from "@/components/Common/CommonForm";
 import { loginFormControls } from "@/Config";
+import { useToast } from "@/hooks/use-toast";
+import { loginUser } from "@/Store/Auth_Slice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -11,6 +14,7 @@ const initialState = {
 };
 
 function Login() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   // const { toast } = useToast();
@@ -20,6 +24,7 @@ function Login() {
 
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
+        console.log(data.payload);
         toast({
           title: data?.payload?.message,
         });

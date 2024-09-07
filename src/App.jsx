@@ -15,13 +15,23 @@ import Shopping_Checkout from "./pages/Shopping/Shopping_Checkout";
 import Shopping_account from "./pages/Shopping/Shopping_account";
 import Checkauth from "./components/Common/Checkauth";
 import Unauth_page from "./pages/Unauth_page/Unauth_page";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth } from "./Store/Auth_Slice";
+import { Skeleton } from "./components/ui/skeleton";
 
 const App = () => {
-  const isAuthenticaion = false;
-  const user = {
-    name: "John Doe",
-    role: null,
-  };
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
   return (
     <div className="flex flex-col  overflow-hidden bg-white">
       <Routes>
@@ -31,7 +41,7 @@ const App = () => {
         <Route
           path="/auth"
           element={
-            <Checkauth isAuthenticaion={isAuthenticaion} user={user}>
+            <Checkauth isAuthenticaion={isAuthenticated} user={user}>
               <AuthLayout></AuthLayout>
             </Checkauth>
           }
@@ -43,7 +53,7 @@ const App = () => {
         <Route
           path="/admin"
           element={
-            <Checkauth isAuthenticaion={isAuthenticaion} user={user}>
+            <Checkauth isAuthenticaion={isAuthenticated} user={user}>
               <AdminLayout></AdminLayout>
             </Checkauth>
           }
@@ -69,7 +79,7 @@ const App = () => {
         <Route
           path="/shop"
           element={
-            <Checkauth isAuthenticaion={isAuthenticaion} user={user}>
+            <Checkauth isAuthenticaion={isAuthenticated} user={user}>
               <Shopping_Layout></Shopping_Layout>
             </Checkauth>
           }
