@@ -18,12 +18,12 @@ function ProductImageUpload({
 }) {
   const inputRef = useRef(null);
 
-  console.log(isEditMode, "isEditMode");
+  // console.log(isEditMode, "isEditMode");
 
   function handleImageFileChange(event) {
-    console.log(event.target.files, "event.target.files");
+    // console.log(event.target.files, "event.target.files");
     const selectedFile = event.target.files?.[0];
-    console.log(selectedFile);
+    // console.log(selectedFile);
 
     if (selectedFile) setImageFile(selectedFile);
   }
@@ -53,7 +53,7 @@ function ProductImageUpload({
       "http://localhost:4000/api/admin/products/upload-image",
       data
     );
-    console.log(response, "response");
+    // console.log(response, "response");
 
     if (response?.data?.success) {
       setUploadedImageUrl(response.data.result.url);
@@ -90,13 +90,13 @@ function ProductImageUpload({
             htmlFor="image-upload"
             className={`${
               isEditMode ? "cursor-not-allowed" : ""
-            } flex flex-col items-center justify-center h-32 cursor-pointer`}
+            } flex flex-col items-center justify-center h-32 `}
           >
             <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
             <span>Drag & drop or click to upload image</span>
           </Label>
         ) : imageLoadingState ? (
-          <Skeleton className="h-10 bg-gray-100" />
+          <Skeleton className="h-10  bg-gray-100" />
         ) : (
           <div className="flex items-center justify-between">
             <div className="flex items-center">

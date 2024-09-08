@@ -1,3 +1,4 @@
+import AdminProductTile from "@/components/Admin/Admin_Product_Tile";
 import ProductImageUpload from "@/components/Admin/image-upload";
 import CommonForm from "@/components/Common/CommonForm";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,12 @@ import {
 } from "@/components/ui/sheet";
 import { addProductFormElements } from "@/Config";
 import { useToast } from "@/hooks/use-toast";
+import {
+  addNewProduct,
+  deleteProduct,
+  editProduct,
+  fetchAllProducts,
+} from "@/Store/Admin/Product-slice";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -63,6 +70,7 @@ function Admin_Products() {
           })
         ).then((data) => {
           if (data?.payload?.success) {
+            // console.log(data);
             dispatch(fetchAllProducts());
             setOpenCreateProductsDialog(false);
             setImageFile(null);
@@ -106,6 +114,7 @@ function Admin_Products() {
         {productList && productList.length > 0
           ? productList.map((productItem) => (
               <AdminProductTile
+                key={productItem._id}
                 setFormData={setFormData}
                 setOpenCreateProductsDialog={setOpenCreateProductsDialog}
                 setCurrentEditedId={setCurrentEditedId}
