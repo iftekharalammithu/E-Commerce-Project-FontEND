@@ -1,10 +1,14 @@
 import ProductImageUpload from "@/components/Admin/image-upload";
 import CommonForm from "@/components/Common/CommonForm";
 import { Button } from "@/components/ui/button";
-import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { addProductFormElements } from "@/Config";
 import { useToast } from "@/hooks/use-toast";
-import { Sheet } from "lucide-react";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -89,7 +93,7 @@ function Admin_Products() {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-  console.log(formData, "productList");
+  // console.log(formData, "productList");
 
   return (
     <Fragment>
