@@ -3,6 +3,10 @@ import ShoppingProductTile from "@/components/Shopping/product-tile";
 import { Button } from "@/components/ui/button";
 import { sortOptions } from "@/Config";
 import {
+  fetchAllFilteredProducts,
+  fetchProductDetails,
+} from "@/Store/Shop/Product-slice";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
