@@ -1,4 +1,5 @@
 import ProductFilter from "@/components/Shopping/Filter";
+import ShoppingProductTile from "@/components/Shopping/product-tile";
 import { Button } from "@/components/ui/button";
 import { sortOptions } from "@/Config";
 import {
@@ -178,6 +179,7 @@ function ShoppingListing() {
           {productList && productList.length > 0
             ? productList.map((productItem) => (
                 <ShoppingProductTile
+                  key={productItem?._id}
                   handleGetProductDetails={handleGetProductDetails}
                   product={productItem}
                   handleAddtoCart={handleAddtoCart}
