@@ -1,5 +1,6 @@
 import ProductFilter from "@/components/Shopping/Filter";
 import ShoppingProductTile from "@/components/Shopping/product-tile";
+import ProductDetailsDialog from "@/components/Shopping/Product_details";
 import { Button } from "@/components/ui/button";
 import { sortOptions } from "@/Config";
 import {
