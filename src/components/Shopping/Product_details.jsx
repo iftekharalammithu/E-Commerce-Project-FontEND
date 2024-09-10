@@ -2,12 +2,12 @@ import { setProductDetails } from "@/Store/Shop/Product-slice";
 import { Dialog, DialogContent } from "@radix-ui/react-dialog";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useToast } from "react-toastify";
 import { Button } from "../ui/button";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import { useToast } from "@/hooks/use-toast";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");

@@ -1,8 +1,8 @@
 import { deleteCartItem, updateCartQuantity } from "@/Store/Shop/Cart";
 import { useDispatch, useSelector } from "react-redux";
-import { useToast } from "react-toastify";
 import { Button } from "../ui/button";
 import { Minus, Plus, Trash } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 function UserCartItemsContent({ cartItem }) {
   const { user } = useSelector((state) => state.auth);

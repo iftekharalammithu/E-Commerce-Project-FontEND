@@ -3,6 +3,7 @@ import ShoppingProductTile from "@/components/Shopping/product-tile";
 import ProductDetailsDialog from "@/components/Shopping/Product_details";
 import { Button } from "@/components/ui/button";
 import { sortOptions } from "@/Config";
+import { useToast } from "@/hooks/use-toast";
 import { addToCart, fetchCartItems } from "@/Store/Shop/Cart";
 import {
   fetchAllFilteredProducts,
@@ -19,7 +20,6 @@ import { ArrowUpDownIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { useToast } from "react-toastify";
 
 function createSearchParamsHelper(filterParams) {
   const queryParams = [];
