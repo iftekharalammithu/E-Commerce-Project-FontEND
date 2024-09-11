@@ -6,7 +6,7 @@ const Shopping_Layout = () => {
   return (
     <div className="flex flex-col bg-white overflow-hidden">
       {/* common header */}
-      <h1>shop</h1>
+      {/* <h1>shop</h1> */}
       <Shopping_Header />
       <main className="flex flex-col w-full">
         <Outlet />
