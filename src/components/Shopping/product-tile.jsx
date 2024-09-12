@@ -1,3 +1,4 @@
+import { brandOptionsMap, categoryOptionsMap } from "@/Config";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter } from "../ui/card";
