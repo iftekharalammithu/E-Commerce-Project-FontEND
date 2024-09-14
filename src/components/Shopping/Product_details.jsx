@@ -9,6 +9,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { addToCart, fetchCartItems } from "@/Store/Shop/Cart";
+import StarRatingComponent from "../Common/Star_rating";
+import { addReview, getReviews } from "@/Store/Shop/Review_slice";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");
@@ -93,7 +95,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     if (productDetails !== null) dispatch(getReviews(productDetails?._id));
   }, [productDetails]);
 
-  console.log(reviews, "reviews");
+  // console.log(reviews, "reviews");
 
   const averageReview =
     reviews && reviews.length > 0

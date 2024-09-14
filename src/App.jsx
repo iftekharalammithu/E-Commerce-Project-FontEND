@@ -21,6 +21,7 @@ import { checkAuth } from "./Store/Auth_Slice";
 import { Skeleton } from "./components/ui/skeleton";
 import PaypalReturnPage from "./pages/Shopping/Paypal-return";
 import PaymentSuccessPage from "./pages/Shopping/Paypal-Success";
+import SearchProducts from "./pages/Shopping/Search";
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -37,6 +38,15 @@ const App = () => {
   return (
     <div className="flex flex-col  overflow-hidden bg-white">
       <Routes>
+        <Route
+          path="/"
+          element={
+            <Checkauth
+              isAuthenticaion={isAuthenticated}
+              user={user}
+            ></Checkauth>
+          }
+        ></Route>
         {/* /auth is the parent route. inside this route all are child route */}
         {/* and all the child route are render by outlet COmponent */}
         {/* Auth Layout */}
@@ -109,6 +119,10 @@ const App = () => {
           <Route
             path="paypal-success"
             element={<PaymentSuccessPage></PaymentSuccessPage>}
+          ></Route>
+          <Route
+            path="search"
+            element={<SearchProducts></SearchProducts>}
           ></Route>
         </Route>
         <Route

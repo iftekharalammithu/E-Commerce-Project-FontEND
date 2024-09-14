@@ -4,7 +4,6 @@ import bannerTwo from "../../assets/banner-2.webp";
 import bannerThree from "../../assets/banner-3.webp";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "react-toastify";
 import {
   fetchAllFilteredProducts,
   fetchProductDetails,
@@ -29,6 +28,8 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import ShoppingProductTile from "@/components/Shopping/product-tile";
 import ProductDetailsDialog from "@/components/Shopping/Product_details";
+import { getFeatureImages } from "@/Store/Common_Slice";
+import { useToast } from "@/hooks/use-toast";
 
 const categoriesWithIcon = [
   { id: "men", label: "Men", icon: ShirtIcon },
@@ -68,7 +69,7 @@ function ShoppingHome() {
     };
 
     sessionStorage.setItem("filters", JSON.stringify(currentFilter));
-    navigate(`/shop/listing`);
+    navigate(`/shop/shopping_listing`);
   }
 
   function handleGetProductDetails(getCurrentProductId) {

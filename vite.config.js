@@ -12,6 +12,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      path: "path-browserify", // If you want to polyfill 'path'
     },
   },
 });
