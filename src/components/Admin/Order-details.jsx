@@ -1,5 +1,4 @@
 import { useToast } from "@/hooks/use-toast";
-import { DialogContent } from "@radix-ui/react-dialog";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
@@ -11,6 +10,7 @@ import {
   getOrderDetailsForAdmin,
   updateOrderStatus,
 } from "@/Store/Admin/Admin_Order_slice";
+import { DialogContent } from "../ui/dialog";
 
 const initialFormData = {
   status: "",
@@ -22,7 +22,7 @@ function AdminOrderDetailsView({ orderDetails }) {
   const dispatch = useDispatch();
   const { toast } = useToast();
 
-  console.log(orderDetails, "orderDetailsorderDetails");
+  // console.log(orderDetails, "orderDetailsorderDetails");
 
   function handleUpdateStatus(event) {
     event.preventDefault();
@@ -91,7 +91,10 @@ function AdminOrderDetailsView({ orderDetails }) {
               {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
                 ? orderDetails?.cartItems.map((item) => (
                     // eslint-disable-next-line react/jsx-key
-                    <li className="flex items-center justify-between">
+                    <li
+                      key={item.productId}
+                      className="flex items-center justify-between"
+                    >
                       <span>Title: {item.title}</span>
                       <span>Quantity: {item.quantity}</span>
                       <span>Price: ${item.price}</span>

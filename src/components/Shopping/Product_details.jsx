@@ -1,5 +1,4 @@
 import { setProductDetails } from "@/Store/Shop/Product-slice";
-import { Dialog, DialogContent } from "@radix-ui/react-dialog";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../ui/button";
@@ -11,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { addToCart, fetchCartItems } from "@/Store/Shop/Cart";
 import StarRatingComponent from "../Common/Star_rating";
 import { addReview, getReviews } from "@/Store/Shop/Review_slice";
+import { Dialog, DialogContent } from "../ui/dialog";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");
@@ -80,6 +80,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         reviewValue: rating,
       })
     ).then((data) => {
+      console.log(data, "data");
       if (data.payload.success) {
         setRating(0);
         setReviewMsg("");
@@ -105,7 +106,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
 
   return (
     <Dialog open={open} onOpenChange={handleDialogClose}>
-      <DialogContent className="grid grid-cols-2 gap-8 sm:p-12 max-w-[90vw] sm:max-w-[80vw] lg:max-w-[70vw]">
+      <DialogContent className="grid  grid-cols-2 gap-8 sm:p-12 max-w-[90vw] sm:max-w-[90vw] lg:max-w-[70vw]">
         <div className="relative overflow-hidden rounded-lg">
           <img
             src={productDetails?.image}
@@ -118,7 +119,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         <div className="">
           <div>
             <h1 className="text-3xl font-extrabold">{productDetails?.title}</h1>
-            <p className="text-muted-foreground text-2xl mb-5 mt-4">
+            <p className="text-muted-foreground overflow-auto max-h-36 text-2xl mb-5 mt-4">
               {productDetails?.description}
             </p>
           </div>

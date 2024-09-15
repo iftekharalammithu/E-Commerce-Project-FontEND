@@ -10,7 +10,6 @@ import {
   TableRow,
 } from "../ui/table";
 import { Badge } from "../ui/badge";
-import { Dialog } from "@radix-ui/react-dialog";
 import { Button } from "../ui/button";
 import AdminOrderDetailsView from "./Order-details";
 import {
@@ -18,6 +17,7 @@ import {
   getOrderDetailsForAdmin,
   resetOrderDetails,
 } from "@/Store/Admin/Admin_Order_slice";
+import { Dialog } from "../ui/dialog";
 
 function AdminOrdersView() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
@@ -32,7 +32,7 @@ function AdminOrdersView() {
     dispatch(getAllOrdersForAdmin());
   }, [dispatch]);
 
-  console.log(orderDetails, "orderList");
+  // console.log(orderDetails, "orderList");
 
   useEffect(() => {
     if (orderDetails !== null) setOpenDetailsDialog(true);
@@ -59,7 +59,7 @@ function AdminOrdersView() {
           <TableBody>
             {orderList && orderList.length > 0
               ? orderList.map((orderItem) => (
-                  <TableRow key={orderItem.id}>
+                  <TableRow key={orderItem.cartId}>
                     <TableCell>{orderItem?._id}</TableCell>
                     <TableCell>{orderItem?.orderDate.split("T")[0]}</TableCell>
                     <TableCell>

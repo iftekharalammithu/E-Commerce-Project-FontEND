@@ -10,7 +10,6 @@ import {
   TableRow,
 } from "../ui/table";
 import { Badge } from "../ui/badge";
-import { Dialog } from "@radix-ui/react-dialog";
 import { Button } from "../ui/button";
 import ShoppingOrderDetailsView from "./Order_details";
 import {
@@ -18,6 +17,7 @@ import {
   getOrderDetails,
   resetOrderDetails,
 } from "@/Store/Shop/Order-Slice";
+import { Dialog } from "../ui/dialog";
 
 function ShoppingOrders() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
@@ -37,7 +37,7 @@ function ShoppingOrders() {
     if (orderDetails !== null) setOpenDetailsDialog(true);
   }, [orderDetails]);
 
-  console.log(orderDetails, "orderDetails");
+  // console.log(orderDetails, "orderDetails");
 
   return (
     <Card>

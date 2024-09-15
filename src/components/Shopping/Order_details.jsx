@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Badge } from "../ui/badge";
 import { Label } from "../ui/label";
-import { DialogContent } from "@radix-ui/react-dialog";
+import { DialogContent } from "../ui/dialog";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 
 function ShoppingOrderDetailsView({ orderDetails }) {

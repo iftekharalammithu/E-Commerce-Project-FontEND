@@ -105,7 +105,7 @@ const App = () => {
             element={<Shopping_account></Shopping_account>}
           ></Route>
           <Route
-            path="shopping_checkout"
+            path="checkout"
             element={<Shopping_Checkout></Shopping_Checkout>}
           ></Route>
           <Route
