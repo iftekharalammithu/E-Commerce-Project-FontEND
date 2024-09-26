@@ -36,7 +36,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username/e-commerce-platform.git
+   git clone https://github.com/iftekharalammithu/E-Commerce-Project-FontEND.git
    ```
 2. Install NPM packages
    ```sh
