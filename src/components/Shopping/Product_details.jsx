@@ -2,7 +2,6 @@ import { setProductDetails } from "@/Store/Shop/Product-slice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../ui/button";
-import { Separator } from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -11,6 +10,7 @@ import { addToCart, fetchCartItems } from "@/Store/Shop/Cart";
 import StarRatingComponent from "../Common/Star_rating";
 import { addReview, getReviews } from "@/Store/Shop/Review_slice";
 import { Dialog, DialogContent } from "../ui/dialog";
+import { Separator } from "../ui/separator";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");

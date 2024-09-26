@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Badge } from "../ui/badge";
 import { Label } from "../ui/label";
 import { DialogContent } from "../ui/dialog";
-import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Separator } from "../ui/separator";
 
 function ShoppingOrderDetailsView({ orderDetails }) {
   const { user } = useSelector((state) => state.auth);

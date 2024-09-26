@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
 import { Badge } from "../ui/badge";
-import { Separator } from "@radix-ui/react-dropdown-menu";
 import CommonForm from "../Common/CommonForm";
 import {
   getAllOrdersForAdmin,
@@ -11,6 +10,7 @@ import {
   updateOrderStatus,
 } from "@/Store/Admin/Admin_Order_slice";
 import { DialogContent } from "../ui/dialog";
+import { Separator } from "../ui/separator";
 
 const initialFormData = {
   status: "",
